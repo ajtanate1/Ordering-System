@@ -1,5 +1,7 @@
 <?php
 
+use App\Order;
+use App\Product;
 use App\User;
 use Illuminate\Support\Facades\Route;
 
@@ -26,8 +28,19 @@ Route::post('/registration','UserController@registration')->name('registration')
 Route::get('/registration',function(){
     return view('register');
 });
+
+Route::get('/update/price','ProductController@update_stock');
+
+Route::get('/add/stock','ProductController@add_stock');
+
+Route::get('/edit/customer/{id}','UserController@edit_cus');
+
+
+Route::put('/update/customer/{id}','UserController@update_cus');
+
 Route::get('/manage/stocks',function(){
-    return view('managestocks');
+    $product = Product::first();
+    return view('managestocks',compact('product'));
 });
 Route::get('/manage/user/info',function(){
     $users = User::role('customer')->get();
@@ -37,22 +50,33 @@ Route::get('/view/reservation',function(){
     return view('viewreservation');
 });
 Route::get('/approve/order',function(){
-    return view('approveorder');
+    $orders = Order::get();
+    return view('approveorder',compact('orders'));
 });
 Route::get('/manage/report',function(){
     return view('managereport');
 });
 
-
-
 // customer
+
+Route::get('/remove/order/{id}','OrderController@cancel_remove');
+Route::get('/approve/order/{id}','OrderController@approve');
+Route::get('/claim/order/{id}','OrderController@claim');
+
+Route::post('/customer/order','OrderController@order');
+
+Route::get('/myorder',function(){
+    $orders = Order::where('customer_id',auth()->user()->id)->get();
+    return view('customer.myorder',compact('orders'));
+});
 
 
 Route::get('/login/user',function(){
     return view('loginuser');
 });
 Route::get('/reserve/iceblocks',function(){
-    return view('reserveiceblocks');
+    $product = Product::first();
+    return view('reserveiceblocks',compact('product'));
 });
 Route::get('/order/iceblocks',function(){
     return view('ordericeblocks');

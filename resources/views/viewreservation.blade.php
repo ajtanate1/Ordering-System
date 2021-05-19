@@ -74,7 +74,7 @@
                                             <td>6</td>
                                             <td>6</td>
                                         </tr>
-                                        
+
                                     </tbody>
                                 </table>
                             </div>

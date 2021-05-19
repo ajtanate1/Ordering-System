@@ -167,7 +167,7 @@
                         </div>
                     </div>
                 </div>
-       
+
                 <div class="row">
                     <!-- column -->
                     <div class="col-lg-6">
@@ -753,5 +753,5 @@
                         </div>
                     </div>
                 </div>
-         
+
 @endsection

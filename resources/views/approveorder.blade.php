@@ -1,7 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <div class="card">
                             <div class="card-body">
@@ -11,95 +13,81 @@
                                 <table class="table">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>
-                                            </th>
-                                            <th scope="col">User</th>
+
+                                            <th scope="col">Customer</th>
                                             <th scope="col">Date of Reservation</th>
-                                            <th scope="col">Ice Block</th>
+                                            <th scope="col">Order Type</th>
                                             <th scope="col">Quantity</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col">Total Price</th>
+                                            <th scope="col">Down Payment</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody class="customtable">
+                                        @forelse ($orders as $order)
                                         <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td>4</td>
-                                            <td>4</td>
+                                            <td>{{$order->customer->firstname}} {{$order->customer->lastname}}</td>
+                                            <td>{{$order->created_at}}</td>
+                                            <td>{{$order->ice_type}}</td>
+                                            <td>{{$order->order_qty}}</td>
+                                            <td>{{$order->down_payment}}</td>
+                                            <td>
+
+                                                @if($order->order_status =='approved')
+                                                approved order
+                                                @elseif($order->order_status =='paid')
+                                                paid
+                                                @else
+                                                pending
+                                                @endif
+                                            </td>
+                                            <td>{{$order->order_qty*$order->product->price}}</td>
+                                            @if($order->order_status !='paid')
+
+                                            <td>
+                                             <a href="/remove/order/{{$order->id}}" class="btn btn-primary"> Cancel/Remove  </a>
+                                             {{-- <a href="/approve/order/{{$order->id}}"  class="btn btn-primary"> Approved  </a> --}}
+                                             <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                            Approved
+                                        </button>
+                                        <a href="/claim/order/{{$order->id}}" class="btn btn-primary"> Claim  </a>
+
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="/approve/order/{{$order->id}}" method="get">
+                                                        @csrf
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Down Payment</label>
+                                                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="down_payment" placeholder="Enter down payment amount">
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                                            </div>
+                                                    </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                            </div>
+                                        </div>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td>5</td>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td>4</td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td>5</td>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.5</td>
-                                            <td>Win 95+</td>
-                                            <td>5.5</td>
-                                            <td>5.5</td>
-                                        </tr>
-                                        <tr>
-                                            <th>
-                                                <label class="customcheckbox">
-                                                    <input type="checkbox" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 6</td>
-                                            <td>Win 98+</td>
-                                            <td>6</td>
-                                            <td>6</td>
-                                        </tr>
-                                        
+                                        @endif
+                                        @empty
+                                        no reservation!
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>

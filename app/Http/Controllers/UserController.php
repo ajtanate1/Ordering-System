@@ -21,4 +21,14 @@ class UserController extends Controller
        $staff->assignRole('customer');
        return redirect()->back()->with('success','Added Customer');
     }
+
+    public function edit_cus($id){
+        $user = User::findOrfail($id);
+        return view('updateuser',compact('user'));
+    }
+    public function update_cus($id){
+        $user = User::findOrfail($id);
+        $user->update(request()->all());
+        return redirect()->back();
+    }
 }
