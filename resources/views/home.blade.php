@@ -1,9 +1,26 @@
 @extends('layouts.admin')
 
 @section('content')
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
+
+
+<div class="carousel-inner">
+    <div class="item active">
+        <img src="ice.jpg" alt="" class="img-responsive">
+        <div class="carousel-caption right-caption">
+            Block ice is ideal for bulk cooling needs. Ice, as a cooling medium, provides the ideal humidity to avoid dehydration that Spoils the freshness and presentation of the product. 150 kg is considered the largest size of block one man can conveniently handle.
+            <br>
+            Ice block to ice crushed Electrically powered ice crushers can crush large blocks of ice to a suitable fineness. Some ice crushers are equipped with a blower that allows the ice to be distributed onto or over a load of produce. Ice crushers can be extremely dangerous when improperly used.
+        </div>
+     </div>
+ </div>
+
+
+
+
+
+
+                    {{-- <!-- Column --> --}}
+                    {{-- <div class="col-md-6 col-lg-2 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-cyan text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
@@ -751,7 +768,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div> --}}
+
 
 @endsection

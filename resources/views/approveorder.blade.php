@@ -14,19 +14,21 @@
                                     <thead class="thead-light">
                                         <tr>
 
+                                            <th>Order Number</th>
                                             <th scope="col">Customer</th>
                                             <th scope="col">Date of Reservation</th>
                                             <th scope="col">Order Type</th>
                                             <th scope="col">Quantity</th>
+                                            <th scope="col">Down Payment</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Total Price</th>
-                                            <th scope="col">Down Payment</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody class="customtable">
                                         @forelse ($orders as $order)
                                         <tr>
+                                            <td>{{$order->id}}</td>
                                             <td>{{$order->customer->firstname}} {{$order->customer->lastname}}</td>
                                             <td>{{$order->created_at}}</td>
                                             <td>{{$order->ice_type}}</td>
@@ -42,30 +44,31 @@
                                                 pending
                                                 @endif
                                             </td>
-                                            <td>{{$order->order_qty*$order->product->price}}</td>
-                                            @if($order->order_status !='paid')
-
                                             <td>
-                                             <a href="/remove/order/{{$order->id}}" class="btn btn-primary"> Cancel/Remove  </a>
-                                             {{-- <a href="/approve/order/{{$order->id}}"  class="btn btn-primary"> Approved  </a> --}}
+                                                {{$order->order_qty* $order->current_price}}
+                                            </td>
+                                            @if($order->order_status !='paid')
+                                    <td>
+                                        <a href="/remove/order/{{$order->id}}" class="btn btn-primary"> Cancel/Remove  </a>
                                              <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data_value="{{ $order->id}}" data-target="#exampleModal-{{$order->id}}">
                                             Approved
                                         </button>
+
                                         <a href="/claim/order/{{$order->id}}" class="btn btn-primary"> Claim  </a>
 
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal-{{$order->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <h5 class="modal-title" id="exampleModalLabel">Approve Order</h5>
+                                                <button type="button" class="close" data-dismiss="modal" data_value="{{$order->id}}" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                                 </div>
-                                                <div class="modal-body">
+                                                <div class="Approve Order!">
                                                     <form action="/approve/order/{{$order->id}}" method="get">
                                                         @csrf
                                                     <div class="form-group">
@@ -77,12 +80,14 @@
                                                             </div>
                                                     </div>
                                                     </form>
+
+
                                                 </div>
 
                                             </div>
                                             </div>
                                         </div>
-                                            </td>
+                                </td>
                                         </tr>
                                         @endif
                                         @empty

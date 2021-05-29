@@ -17,7 +17,8 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('order_number');
             $table->integer('order_qty');
-            $table->string('ice_type');
+            $table->string('ice_type')->nullable();
+            $table->integer('current_price')->nullable();
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('customer_id');
             $table->enum('order_status',[0,'approved','paid','unpaid'])->default(0);

@@ -18,6 +18,8 @@
                                     <input id="surname" name="lastname" type="text" value="{{$user->lastname}}" class="required form-control" required>
                                     <label for="email">Email *</label>
                                     <input id="email" name="email" type="text" value="{{$user->email}}" class="required email form-control" required>
+                                    <label for="address">Contact No.</label>
+                                    <input id="mobile" name="mobile" type="text" value="{{$user->mobile}}" class=" form-control" required>
                                     <label for="address">Address</label>
                                     <input id="address" name="address" type="text" value="{{$user->address}}" class=" form-control" required>
                                     <p>(*) Mandatory</p>
@@ -29,7 +31,8 @@
                                     <label for="acceptTerms">I agree with the Terms and Conditions.</label>
                                 </section>
                             </div>
-                            <button type="submit" class="btn btn-primary">Save </button>
+                            <button  type="submit" class="btn btn-primary">Save </button>
+
                         </form>
                     </div>
                 </div>

@@ -13,7 +13,8 @@ class Order extends Model
         'ice_type',
         'product_id',
         'customer_id',
-        'down_payment'
+        'down_payment',
+        'current_price'  
     ];
 
 

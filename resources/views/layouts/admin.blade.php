@@ -11,9 +11,16 @@
     <meta name="description"
         content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Ordering System</title>
+    <title>Ice Plant Ordering Management System</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+
+
+
+@role('admin')
+    <link rel="icon" type="image/png" sizes="16x16" href="http://127.0.0.1:8000/home">
+    @endrole
+
+
     <!-- Custom CSS -->
     <link href="../../assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -44,7 +51,7 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar" data-navbarbg="skin5">
+        <header class="topbar" data-navbarbg="skin1">
             @include('includes.nav')
         </header>
         <!-- ============================================================== -->
@@ -59,42 +66,30 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="pt-4">
-                        @role('admin')
+
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="/registration" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
-                        class="hide-menu">Register</span></a>
+                        class="hide-menu">Register User</span></a>
                     </li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="/manage/stocks" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
-                            class="hide-menu">Manage Stocks</span></a></li>
+                            class="hide-menu">Update</span></a></li>
 
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="/manage/user/info" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span
                                 class="hide-menu">Manage User Info</span></a></li>
+
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href="/view/reservation" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span
-                                class="hide-menu">View Reservation</span></a></li>
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href="/approve/order" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
-                                class="hide-menu">Approve Order</span></a></li>
+                            href="/order" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
+                                class="hide-menu">View Order</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="/manage/report" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span
-                                class="hide-menu">Manage Report</span></a></li>
-
-                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                            href="/manag/report)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span
-                                class="hide-menu">Manage Report </span></a>
-                        <ul aria-expanded="false" class="collapse  first-level">
-                            <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i
-                                        class="mdi mdi-note-outline"></i><span class="hide-menu"> Form Basic
-                                    </span></a></li>
-                            <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i
-                                        class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard
-                                    </span></a></li>
-                        </ul>
+                                class="hide-menu">View Report</span></a></li>
                     </li>
-                    @endrole
-                    @role('customer')
+
+
+
+
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="/myorder" aria-expanded="false"><i
                             class="mdi mdi-relative-scale"></i><span class="hide-menu">My Order</span></a></li>
@@ -102,7 +97,7 @@
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/reserve/iceblocks" aria-expanded="false"><i
                                     class="mdi mdi-relative-scale"></i><span class="hide-menu">Order ice</span></a></li>
-                    @endrole
+
 
                         {{-- <ul aria-expanded="false" class="collapse  first-level">
                             <li class="sidebar-item"><a href="icon-material.html" class="sidebar-link"><i
@@ -187,13 +182,10 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Dashboard</h4>
+                        <h4 class="page-title">Ice Plant Ordering Management System</h4>
                         <div class="ms-auto text-end">
                             <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
+
                             </nav>
                         </div>
                     </div>
@@ -215,8 +207,8 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a
-                    href="https://www.wrappixel.com">WrapPixel</a>.
+                All Rights Reserved by Admin. Designed and Developed by <a
+                    href="https://www.facebook.com/alex.j.tanate/">Alex Jr. C. Tanate</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

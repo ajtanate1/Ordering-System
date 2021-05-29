@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
+        <title>Ice Plant Ordering Management System</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Styles -->
         <style>
             html, body {
@@ -71,29 +71,53 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('register') }}">Register</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">-</a>
                         @endif
                     @endauth
                 </div>
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+                {{-- <div class="title m-b-md">
+                   <h4> Ice Plant Ordering Management System </h4>
+                </div> --}}
+                <div class="card">
+                {{-- <h5 class="card-header">Featured</h5> --}}
+                  <h5 class="card-title">{{$product->name}}</h5>
+                                  <p class="card-text">Product Price: {{$product->price}}</p>
+                                    <p class="card-text">Product Stock: {{$product->stock}}</p>
+                <div class="card-body">
+                    <p class="card-text text-white">With supporting text below as a natural lead-in to additional contentsssssssssssssssssssssss.</p>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                     <form action="/customer/order" method="post">
+                        @csrf
+                        <label for="cars">Customer</label>
+                            <select class="form-control" name="customer_id">
+                            @foreach($users as $user)
+                                <option value="{{$user->id}}">{{$user->firstname}} {{$user->lastname}}</option>
+
+                            @endforeach
+                              
+                            </select>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Enter Quantity</label>
+                            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="order_qty" placeholder="Enter Order Quantity" required>
+                        </div>
+                        <input type="hidden" name="product" value="{{$product->price}}"> 
+                        @if($product->stock ==0)
+                        <p class="text-primary">Cant book no stock available </p>
+                        @else
+                        <button type="submit" class="btn btn-primary"> Order Now </button>
+
+                        @endif
+                      </form>
                 </div>
+                </div>
+                
             </div>
         </div>
     </body>

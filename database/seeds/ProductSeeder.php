@@ -15,8 +15,8 @@ class ProductSeeder extends Seeder
         Product::insert([
             [
                 'product_name' =>'Ice Block',
-                'price' =>210,
-                'stock' =>30,
+                'price' =>0,
+                'stock' =>0,
             ],
 
         ]);

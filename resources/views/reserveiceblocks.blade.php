@@ -5,6 +5,12 @@
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">Order Ice blocks</h5>
+
+
+        <p class="card-text">Product Price: {{$product->price}}</p>
+        <p class="card-text">Product Stock: {{$product->stock}}</p>
+
+
         <div class="card">
             <div class="card-body">
               <form action="/customer/order" method="post">
