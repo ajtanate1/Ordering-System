@@ -22,6 +22,7 @@
                                             <th scope="col">Down Payment</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Total Price</th>
+                                              <th scope="col">Balance</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -46,6 +47,9 @@
                                             </td>
                                             <td>
                                                 {{$order->order_qty* $order->current_price}}
+                                            </td>
+                                               <td>
+                                                {{$order->order_qty* $order->current_price - $order->down_payment }}
                                             </td>
                                             @if($order->order_status !='paid')
                                     <td>
