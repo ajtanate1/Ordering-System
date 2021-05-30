@@ -15,14 +15,16 @@
                                         <tr>
 
                                             <th>Order Number</th>
+                                            {{-- <th>Contact No.</th> --}}
                                             <th scope="col">Customer</th>
                                             <th scope="col">Date of Reservation</th>
-                                            <th scope="col">Order Type</th>
                                             <th scope="col">Quantity</th>
-                                            <th scope="col">Down Payment</th>
+                                            
                                             <th scope="col">Status</th>
-                                            <th scope="col">Total Price</th>
+                                            
                                               <th scope="col">Balance</th>
+                                              <th scope="col">Down Payment</th>
+                                            <th scope="col">Total Price</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -31,10 +33,11 @@
                                         <tr>
                                             <td>{{$order->id}}</td>
                                             <td>{{$order->customer->firstname}} {{$order->customer->lastname}}</td>
+                                            
                                             <td>{{$order->created_at}}</td>
-                                            <td>{{$order->ice_type}}</td>
+                                            
                                             <td>{{$order->order_qty}}</td>
-                                            <td>{{$order->down_payment}}</td>
+                                            
                                             <td>
 
                                                 @if($order->order_status =='approved')
@@ -45,11 +48,13 @@
                                                 pending
                                                 @endif
                                             </td>
-                                            <td>
-                                                {{$order->order_qty* $order->current_price}}
-                                            </td>
+                                            
                                                <td>
                                                 {{$order->order_qty* $order->current_price - $order->down_payment }}
+                                            </td>
+                                            <td>{{$order->down_payment}}</td>
+                                            <td>
+                                                {{$order->order_qty* $order->current_price}}
                                             </td>
                                             @if($order->order_status !='paid')
                                     <td>

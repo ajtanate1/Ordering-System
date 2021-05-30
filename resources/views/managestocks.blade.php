@@ -20,7 +20,6 @@
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                     Add Stock
                                 </button>
-
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -41,16 +40,12 @@
                                                 </div>
                                             </form>
                                         </div>
-
                                     </div>
                                     </div>
                                 </div>
-
-
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
                                 Update Price
                             </button>
-
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -66,7 +61,8 @@
                                         @csrf
                                     <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="input new price" name="price">
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" cla
+                                        ss="btn btn-secondary" data-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </form>
@@ -76,6 +72,25 @@
                                 </div>
                                 </div>
                             </div>
+                            <div class="mt-4">
+                                <h3> Price Logs  </h3>
+                                <ul class="list-group">
+                                    @foreach($logs as $log)
+                                    <li class="list-group-item">Price updated last {{$log->created_at}}</li>
+                                    @endforeach
+
+                                </ul>
+                            </div>
+
+                            <div class="mt-4">
+                                <h3> Stocks Logs  </h3>
+                                <ul class="list-group">
+                                    @foreach($stocks as $stock)
+                                    <li class="list-group-item"> {{$stock->stocks_added}} Stocks added  last {{$stock->created_at}}</li>
+                                    @endforeach
+
+                                </ul>
+                            </div
 
                                 </div>
                               </div>

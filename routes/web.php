@@ -2,6 +2,7 @@
 
 use App\Order;
 use App\Product;
+use App\Log;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
@@ -62,7 +63,9 @@ Route::put('/update/customer/{id}','UserController@update_cus');
 
 Route::get('/manage/stocks',function(){
     $product = Product::first();
-    return view('managestocks',compact('product'));
+    $logs = Log::get();
+    $stocks = Log::where('stocks_added','!=',null)->get();
+    return view('managestocks',compact('product','logs','stocks'));
 });
 Route::get('/manage/user/info',function(){
     $users = User::role('customer')->get();

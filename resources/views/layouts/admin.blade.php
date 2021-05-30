@@ -89,14 +89,14 @@
 
 
 
-
+{{--
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="/myorder" aria-expanded="false"><i
                             class="mdi mdi-relative-scale"></i><span class="hide-menu">My Order</span></a></li>
 
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="/reserve/iceblocks" aria-expanded="false"><i
-                                    class="mdi mdi-relative-scale"></i><span class="hide-menu">Order ice</span></a></li>
+                                    class="mdi mdi-relative-scale"></i><span class="hide-menu">Order ice</span></a></li> --}}
 
 
                         {{-- <ul aria-expanded="false" class="collapse  first-level">

@@ -93,7 +93,7 @@
                                             <th>Order Number</th>
                                             <th scope="col">Customer</th>
                                             <th scope="col">Date of Reservation</th>
-                                            <th scope="col">Order Type</th>
+
                                             <th scope="col">Quantity</th>
                                             <th scope="col">Downpayment</th>
                                             <th scope="col">Fullpayment</th>
@@ -106,7 +106,7 @@
                                             <td>{{$order->id}}</td>
                                             <td>{{$order->customer->firstname}} {{$order->customer->lastname}}</td>
                                             <td>{{$order->created_at}}</td>
-                                            <td>{{$order->ice_type}}</td>
+
                                             <td>{{$order->order_qty}}</td>
                                             <td>{{$order->down_payment}}</td>
                                             <td>{{$order->order_qty*$order->product->price}}</td>
