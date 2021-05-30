@@ -66,9 +66,7 @@
                                         <button type="submit" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </form>
-
                                     </div>
-
                                 </div>
                                 </div>
                             </div>
@@ -76,22 +74,22 @@
                                 <h3> Price Logs  </h3>
                                 <ul class="list-group">
                                     @foreach($logs as $log)
-                                    <li class="list-group-item">Price updated last {{$log->created_at}}</li>
+                                    {{-- <li class="list-group-item"> {{$price->price_updated}} Price updated  last {{$log->created_at}}</li> --}}
+
+                                    <li class="list-group-item">  Price updated last {{$log->created_at}}</li>
+
                                     @endforeach
 
                                 </ul>
                             </div>
-
                             <div class="mt-4">
                                 <h3> Stocks Logs  </h3>
                                 <ul class="list-group">
                                     @foreach($stocks as $stock)
                                     <li class="list-group-item"> {{$stock->stocks_added}} Stocks added  last {{$stock->created_at}}</li>
                                     @endforeach
-
                                 </ul>
                             </div
-
                                 </div>
                               </div>
                             </div>

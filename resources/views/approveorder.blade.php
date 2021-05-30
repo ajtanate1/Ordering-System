@@ -19,11 +19,9 @@
                                             <th scope="col">Customer</th>
                                             <th scope="col">Date of Reservation</th>
                                             <th scope="col">Quantity</th>
-                                            
                                             <th scope="col">Status</th>
-                                            
-                                              <th scope="col">Balance</th>
-                                              <th scope="col">Down Payment</th>
+                                            <th scope="col">Balance</th>
+                                            <th scope="col">Down Payment</th>
                                             <th scope="col">Total Price</th>
                                             <th scope="col">Action</th>
                                         </tr>
@@ -33,13 +31,9 @@
                                         <tr>
                                             <td>{{$order->id}}</td>
                                             <td>{{$order->customer->firstname}} {{$order->customer->lastname}}</td>
-                                            
                                             <td>{{$order->created_at}}</td>
-                                            
                                             <td>{{$order->order_qty}}</td>
-                                            
                                             <td>
-
                                                 @if($order->order_status =='approved')
                                                 approved order
                                                 @elseif($order->order_status =='paid')
@@ -48,7 +42,7 @@
                                                 pending
                                                 @endif
                                             </td>
-                                            
+
                                                <td>
                                                 {{$order->order_qty* $order->current_price - $order->down_payment }}
                                             </td>

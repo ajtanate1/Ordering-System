@@ -17,14 +17,13 @@
                                     <label for="surname">Last name *</label>
                                     <input id="surname" name="lastname" type="text" value="{{$user->lastname}}" class="required form-control" required>
                                     <label for="email">Email *</label>
-                                    <input id="email" name="email" type="text" value="{{$user->email}}" class="required email form-control" required>
-                                    <label for="address">Contact No.</label>
-                                    <input id="mobile" name="mobile" type="text" value="{{$user->mobile}}" class=" form-control" required>
+                                    <input id="email" name="email" type="text" value="{{$user->email}}" class="required email form-control" >
+                                    <label for="contact_no">Contact No.</label>
+                                    <input id="contact_no" name="contact_no" type="text" value="{{$user->contact_no}}" class=" required contact_no form-control" >
                                     <label for="address">Address</label>
                                     <input id="address" name="address" type="text" value="{{$user->address}}" class=" form-control" required>
                                     <p>(*) Mandatory</p>
                                 </section>
-
                                 <h3>Finish</h3>
                                 <section>
                                     <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required" required>

@@ -22,7 +22,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="pt-3">
-                                        <button class="btn btn-info" id="to-recover" type="button"><i class="fa fa-lock me-1"></i> Lost password?</button>
+                                        <button class="btn btn-info" id="to-recover" type="button"><i class="fa fa-lock me-1"></i> Lost Password?</button>
                                         <button class="btn btn-success float-end text-white" type="submit">Login</button>
                                     </div>
                                 </div>

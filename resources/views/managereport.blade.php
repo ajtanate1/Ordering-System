@@ -106,7 +106,6 @@
                                             <td>{{$order->id}}</td>
                                             <td>{{$order->customer->firstname}} {{$order->customer->lastname}}</td>
                                             <td>{{$order->created_at}}</td>
-
                                             <td>{{$order->order_qty}}</td>
                                             <td>{{$order->down_payment}}</td>
                                             <td>{{$order->order_qty*$order->product->price}}</td>

@@ -22,17 +22,13 @@
                 </thead>
                 <tbody>
                     @forelse ($users as $user)
-
                     <tr>
                         <th scope="row">{{$user->id}}</th>
                         <th scope="row">{{$user->firstname}}</th>
                         <th scope="row">{{$user->lastname}}</th>
                         <th scope="row">{{$user->address}}</th>
-                        <th scope="row">{{$user->mobile}}</th>
-                        <td>
-                            <a href="/edit/customer/{{$user->id}}" class="btn btn-primary"> Update
-                            </a>
-                        </td>
+                        <th scope="row">{{$user->contact_no}}</th>
+                        <td> <a href="/edit/customer/{{$user->id}}" class="btn btn-primary"> Update </a></td>
                         @empty
                         no users found
                     </tr>
